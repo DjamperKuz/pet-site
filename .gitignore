@@ -1,0 +1,5 @@
+__pycache__/
+venv
+sowork/sowork/secret_key.py
+*.sqlite3
+.idea
