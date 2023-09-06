@@ -3,5 +3,5 @@ from django.shortcuts import render
 
 
 def lenta(request):
-    return HttpResponse('Лента')
+    return render(request, 'lentaSowork/main_page.html')
 # Create your views here.
