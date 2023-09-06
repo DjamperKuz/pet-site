@@ -3,9 +3,9 @@ from django.shortcuts import render
 
 
 def register(request):
-    return HttpResponse('Страница регистрации')
+    return render(request, 'authorization/register')
 
 
 def login(request):
-    return HttpResponse('Страница авторизации')
+    return render(request, 'authorization/login')
 # Create your views here.
