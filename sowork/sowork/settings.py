@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authorization.apps.AuthorizationConfig',
     'lentaSowork.apps.LentasoworkConfig',
+    'messenger.apps.MessengerConfig'
 ]
 
 MIDDLEWARE = [
