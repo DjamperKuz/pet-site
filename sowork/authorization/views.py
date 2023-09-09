@@ -1,11 +1,26 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.contrib.auth import login
+from django.contrib.auth.views import LoginView
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from .forms import *
 
 
-def register(request):
-    return render(request, 'authorization/register.html')
+# регистрация пользователя
+class RegisterUser(CreateView):
+    form_class = RegisterUserForm
+    template_name = 'authorization/register.html'
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('main_page')
 
 
-def login(request):
-    return render(request, 'authorization/login.html')
-# Create your views here.
+# авторизация пользователя
+class LoginUser(LoginView):
+    form_class = LoginUserForm
+    template_name = 'authorization/login.html'
+
+    def get_success_url(self):
+        return reverse_lazy('main_page')
