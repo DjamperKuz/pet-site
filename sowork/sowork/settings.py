@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authorization.apps.AuthorizationConfig',
-    'lentaSowork.apps.LentasoworkConfig',
+    'profile.apps.ProfileConfig',
     'messenger.apps.MessengerConfig'
 ]
 
