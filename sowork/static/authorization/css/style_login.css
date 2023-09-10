@@ -1,0 +1,82 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background:#ddeefc;
+
+}
+.box{
+  width:250px;
+  padding: 40px;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+.box h1{
+  color:black;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+}
+.box input[type = "text" ],.box input[type = "password"]{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #ddeefc;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color:black;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+.box input[type = "text" ]:focus,.box input[type = "password"]:focus{
+  width: 200px;
+  border-color: #ddeefc;
+}
+.box input[type = "submit"]{
+  border: 0;
+  background: #ddeefc;
+  display: block;
+  margin:20px auto;
+  text-align: center;
+  border: 2px solid #ddeefc;
+  padding: 14px 40px;
+  outline: none;
+  color:black;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.box input[type = "submit"]:hover{
+  background: #6495ED;
+}
+.form_btn{
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  background-color:#6495ED; /*#03a9f4;*/
+  color: white;
+  padding: 10px 90px;
+}
+
+.reg-btn{
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color:  black;
+  font-family: sans-serif;
+  padding: 10px 60px;
+  transition: 0.25s;
+  border-radius: 24px;
+  display: block;
+  text-align:center;
+}
+
+.reg-btn:hover{
+  background: #ddeefc;
+}

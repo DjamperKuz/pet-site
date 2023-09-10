@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from sowork.messenger import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('messenger', views.messenger_home, name='messenger_home'),
+    path('messenger_api', views.messenger_api),
     path('', include('authorization.urls')),
     path('', include('profile.urls')),
     path('', include('messenger.urls'))
