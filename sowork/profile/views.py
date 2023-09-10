@@ -3,5 +3,7 @@ from django.shortcuts import render
 
 
 def profile(request):
-    return render(request, 'profile/main_page.html')
+    username = request.user.username
+
+    return render(request, 'profile/user_profile.html', context={'username': username})
 # Create your views here.

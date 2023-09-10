@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Профиль пользователя</title>
+    <link type="text/css" href="{% static 'profile/css/style_user_profile.css' %}" rel="stylesheet"/>
+</head>
+<body>
+    <div id="profile">
+        <a href="/logout" id="logout">Выход</a>
+        <img src="{{ user.profile_photo.url }}" alt="Фото пользователя">
+        <div id="user_name">{{ user.username }}</div>
+        <div id="buttons">
+            <a href="/chat" class="button">Чат</a>
+            <a href="/friends" class="button">Друзья</a>
+        </div>
+    </div>
+</body>
+</html>
