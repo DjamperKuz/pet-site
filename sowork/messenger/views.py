@@ -1,10 +1,13 @@
-from django.shortcuts import render
-from django.http import JsonResponse
+from django.shortcuts import render, get_object_or_404
+from .models import Chat, Message
 
 
-def messenger_home(request):
-    return render(request, "index.html")
+def chat_list(request):
+    chats = Chat.objects.filter(participants=request.user)
+    return render(request, 'messenger/chat_list.html', {'chats': chats})
 
 
-def messenger_api(request):
-    pass
+def chat_detail(request, chat_id):
+    chat = get_object_or_404(Chat, id=chat_id)
+    messages = Message.objects.filter(chat=chat)
+    return render(request, 'messenger/chat_detail.html', {'chat': chat, 'messages': messages})
