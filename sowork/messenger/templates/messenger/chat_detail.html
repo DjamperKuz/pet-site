@@ -13,7 +13,9 @@
             </li>
         {% endfor %}
     </ul>
-    <form method="post" action="{% url 'send_message' chat_id=chat.id %}">
+
+    <!-- Форма для отправки сообщений -->
+    <form method="post" action="{% url 'chat_detail' chat_id=chat.id %}">
         {% csrf_token %}
         <textarea name="message_content" placeholder="Введите сообщение"></textarea>
         <button type="submit">Отправить</button>
