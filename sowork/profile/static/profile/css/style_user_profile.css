@@ -1,0 +1,33 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+#profile {
+    margin: 0 auto;
+    width: 300px;
+    text-align: center;
+}
+img {
+    max-width: 100%;
+}
+#user_name {
+    font-size: 24px;
+    margin-top: 10px;
+}
+#buttons {
+    margin-top: 20px;
+}
+.button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#logout {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

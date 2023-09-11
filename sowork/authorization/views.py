@@ -14,7 +14,12 @@ class RegisterUser(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('main_page')
+
+        # Собираем URL для профиля пользователя
+        profile_url = reverse_lazy('user_profile', kwargs={'username': user.username})
+
+        # Перенаправляем пользователя на его профиль
+        return redirect(profile_url)
 
 
 # авторизация пользователя
@@ -23,4 +28,8 @@ class LoginUser(LoginView):
     template_name = 'authorization/login.html'
 
     def get_success_url(self):
-        return reverse_lazy('main_page')
+        # Получаем username авторизованного пользователя
+        username = self.request.user.username
+        # Собираем URL для профиля пользователя
+        profile_url = reverse_lazy('user_profile', kwargs={'username': username})
+        return profile_url
