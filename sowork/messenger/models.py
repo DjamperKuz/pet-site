@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import uuid
 
 
 class ChatManager(models.Manager):
@@ -10,6 +11,10 @@ class ChatManager(models.Manager):
 class Chat(models.Model):
     participants = models.ManyToManyField(User, related_name='chats', limit_choices_to= \
         {'chats__participants__count': 2})
+
+    # поле для хранения уникального идентификатора чата
+    unique_id = models.UUIDField(default=None, null=True, unique=True)
+
     objects = ChatManager
 
 

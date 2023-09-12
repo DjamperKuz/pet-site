@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from .models import Chat, Message
 from .forms import MessageForm
+import hashlib
 
 
 def chat_list(request):
@@ -30,12 +31,18 @@ def open_or_create_chat(request, username):
     # найти пользователя с указанным username
     other_user = get_object_or_404(User, username=username)
 
+    # создаём уникальный идентификатор чата на основе участников чата
+    participant_ids = sorted([request.user.id, other_user.id])
+    unique_id = hashlib.md5(','.join(map(str, participant_ids)).encode()).hexdigest()
+
     # проверить, существует ли указанный чат
     chat = Chat.objects.filter(participants=request.user).filter(participants=other_user).first()
 
-    if chat is None:
-        # если чат не существует, создаём новый
-        chat = Chat.objects.create()
+    # проверяем, есть ли чат с таким идентификатором
+    chat, created = Chat.objects.get_or_create(unique_id=unique_id)
+
+    # если чат создан, добавляем участников
+    if created:
         chat.participants.add(request.user, other_user)
 
     # перенаправляем пользователя на страницу чата
