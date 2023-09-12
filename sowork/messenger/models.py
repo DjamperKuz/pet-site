@@ -8,7 +8,8 @@ class ChatManager(models.Manager):
 
 
 class Chat(models.Model):
-    participants = models.ManyToManyField(User, related_name='chats')
+    participants = models.ManyToManyField(User, related_name='chats', limit_choices_to= \
+        {'chats__participants__count': 2})
     objects = ChatManager
 
 
