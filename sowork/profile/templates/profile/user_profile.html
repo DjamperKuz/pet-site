@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="profile">
-        <a href="/logout" id="logout">Выход</a>
+        <a href="{% url 'logout' %}" id="logout">Выход</a>
         <img src="{{ user.profile_photo.url }}" alt="Фото пользователя">
         <div id="user_name">{{ username }}</div>
         <div id="buttons">
