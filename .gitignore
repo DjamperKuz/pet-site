@@ -3,3 +3,4 @@ venv
 sowork/sowork/secret_key.py
 *.sqlite3
 .idea
+media
