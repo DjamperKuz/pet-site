@@ -7,13 +7,14 @@
 </head>
 <body>
     <div id="profile">
-        <a href="/logout" id="logout">Выход</a>
-        <img src="{{ user.profile_photo.url }}" alt="Фото пользователя">
+        <a href="{% url 'logout' %}" id="logout">Выход</a>
+        <img src="{{ user.profile.image.url }}" alt="Фото пользователя">
         <div id="user_name">{{ username }}</div>
         <div id="buttons">
             <a href="/chat" class="button">Чат</a>
             <a href="/friends" class="button">Друзья</a>
         </div>
+        <a href="{% url 'profile_update' %}">Настройки профиля</a>
     </div>
 </body>
 </html>
