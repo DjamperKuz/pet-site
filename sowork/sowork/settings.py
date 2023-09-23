@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authorization.apps.AuthorizationConfig',
     'profile.apps.ProfileConfig',
-    'messenger.apps.MessengerConfig'
+    'messenger.apps.MessengerConfig',
+    'friends.apps.FriendsConfig'
 ]
 
 MIDDLEWARE = [
